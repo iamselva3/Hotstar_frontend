@@ -21,7 +21,7 @@ const Seriesadmin = () => {
       useEffect(() => {
           const fetchData = async () => {
             try {
-              const response = await axios.get("http://localhost:8000/api/series1s");
+              const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/series1s`);
               setProducts(response.data);
             } catch (error) {
               console.log("Error while f etching data", error);
@@ -34,7 +34,7 @@ const Seriesadmin = () => {
         useEffect(() => {
           const fetchData = async () => {
             try {
-              const response = await axios.get("http://localhost:8000/api/series2s");
+              const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/series2s`);
               setshow1(response.data);
             } catch (error) {
               console.log("Error while f etching data", error);
@@ -46,7 +46,7 @@ const Seriesadmin = () => {
         useEffect(() => {
           const fetchData = async () => {
             try {
-              const response = await axios.get("http://localhost:8000/api/series3s");
+              const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/series3s`);
               setshow2(response.data);
             } catch (error) {
               console.log("Error while f etching data", error);
@@ -58,7 +58,7 @@ const Seriesadmin = () => {
         useEffect(() => {
             const fetchData = async () => {
               try {
-                const response = await axios.get("http://localhost:8000/api/series4s");
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/series4s`);
                 setshow3(response.data);
               } catch (error) {
                 console.log("Error while f etching data", error);
@@ -87,7 +87,7 @@ const Seriesadmin = () => {
           }
     
           const response = await axios.post(
-            "http://localhost:8000/api/series1_details",
+            `${process.env.REACT_APP_API_URL}/api/series1_details`,
             formData,
             { headers: { "Content-Type": "multipart/form-data" } }
           );
@@ -118,7 +118,7 @@ const Seriesadmin = () => {
           }
     
           const response = await axios.post(
-            "http://localhost:8000/api/series2_details",
+            `${process.env.REACT_APP_API_URL}/api/series2_details`,
             formData,
             { headers: { "Content-Type": "multipart/form-data" } }
           );
@@ -148,7 +148,7 @@ const Seriesadmin = () => {
           }
     
           const response = await axios.post(
-            "http://localhost:8000/api/series3_details",
+            `${process.env.REACT_APP_API_URL}/api/series3_details`,
             formData,
             { headers: { "Content-Type": "multipart/form-data" } }
           );
@@ -179,7 +179,7 @@ const Seriesadmin = () => {
           }
     
           const response = await axios.post(
-            "http://localhost:8000/api/series4_details",
+            `${process.env.REACT_APP_API_URL}/api/series4_details`,
             formData,
             { headers: { "Content-Type": "multipart/form-data" } }
           );
@@ -195,7 +195,7 @@ const Seriesadmin = () => {
 
       const deleteProduct = async (productId) => {
           await axios
-            .delete(`http://localhost:8000/api/delete/series1/${productId}`)
+            .delete(`${process.env.REACT_APP_API_URL}/api/delete/series1/${productId}`)
             .then(() => {
               setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
             })
@@ -206,7 +206,7 @@ const Seriesadmin = () => {
 
         const deletethriller = async (productId) => {
           await axios
-            .delete(`http://localhost:8000/api/delete/series3/${productId}`)
+            .delete(`${process.env.REACT_APP_API_URL}/api/delete/series3/${productId}`)
             .then(() => {
               setshow2((prevProducts) => prevProducts.filter((product) => product._id !== productId));
             })
@@ -217,7 +217,7 @@ const Seriesadmin = () => {
 
         const deleteshow1 = async (productId) => {
           await axios
-            .delete(`http://localhost:8000/api/delete/series2/${productId}`)
+            .delete(`${process.env.REACT_APP_API_URL}/api/delete/series2/${productId}`)
             .then(() => {
               setshow1((prevProducts) => prevProducts.filter((product) => product._id !== productId));
             })
@@ -315,7 +315,7 @@ const Seriesadmin = () => {
               <td>
                 {product.image ? (
                   <img 
-                    src={`http://localhost:8000${product.image}`} 
+                    src={`${process.env.REACT_APP_API_URL}${product.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 
@@ -426,7 +426,7 @@ const Seriesadmin = () => {
               <td>
                 {product.image ? (
                   <img 
-                    src={`http://localhost:8000${product.image}`} 
+                    src={`${process.env.REACT_APP_API_URL}${product.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 
@@ -539,7 +539,7 @@ const Seriesadmin = () => {
               <td>
                 {product.image ? (
                   <img 
-                    src={`http://localhost:8000${product.image}`} 
+                    src={`${process.env.REACT_APP_API_URL}${product.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 
@@ -658,7 +658,7 @@ const Seriesadmin = () => {
               <td>
                 {product.image ? (
                   <img 
-                    src={`http://localhost:8000${product.image}`} 
+                    src={`${process.env.REACT_APP_API_URL}${product.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 

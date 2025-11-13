@@ -19,7 +19,7 @@ useEffect(() => {
   const fetchUser = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:8000/api/user/profile", {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/profile`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -37,7 +37,7 @@ useEffect(() => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get("http://localhost:8000/api/series4s");
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/series4s`);
             setsports3(response.data);
           } catch (error) {
             console.log("Error while fetching data", error);
@@ -106,7 +106,7 @@ useEffect(() => {
 <div className="carousel-containeruser" ref={carouselRef4}>
 {sports3.map((product) => (
         <div key={product._id} className="product">
-          <img src={`http://localhost:8000${product.image}`} alt={product.name} className="carduser" />
+          <img src={`${process.env.REACT_APP_API_URL}${product.image}`} alt={product.name} className="carduser" />
         </div>
       ))}
 </div>

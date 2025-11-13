@@ -16,7 +16,7 @@ const Login = () => {
  
 const handlesubmit = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/users"); // Fetch all users
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/users`); // Fetch all users
       const users = response.data;
   
       const user = users.find((u) => u.name === email && u.address === password); // Check if user exists

@@ -31,7 +31,7 @@ const Sportsadmin = () => {
                     }
               
                     const response = await axios.post(
-                      "http://localhost:8000/api/sports1_details",
+                      `${process.env.REACT_APP_API_URL}/api/sports1_details`,
                       formData,
                       { headers: { "Content-Type": "multipart/form-data" } }
                     );
@@ -61,7 +61,7 @@ const Sportsadmin = () => {
                       }
                 
                       const response = await axios.post(
-                        "http://localhost:8000/api/sports2_details",
+                        `${process.env.REACT_APP_API_URL}/api/sports2_details`,
                         formData,
                         { headers: { "Content-Type": "multipart/form-data" } }
                       );
@@ -93,7 +93,7 @@ const Sportsadmin = () => {
                       }
                 
                       const response = await axios.post(
-                        "http://localhost:8000/api/sports3_details",
+                        `${process.env.REACT_APP_API_URL}/api/sports3_details`,
                         formData,
                         { headers: { "Content-Type": "multipart/form-data" } }
                       );
@@ -122,7 +122,7 @@ const Sportsadmin = () => {
                       }
                 
                       const response = await axios.post(
-                        "http://localhost:8000/api/sports4_details",
+                        `${process.env.REACT_APP_API_URL}/api/sports4_details`,
                         formData,
                         { headers: { "Content-Type": "multipart/form-data" } }
                       );

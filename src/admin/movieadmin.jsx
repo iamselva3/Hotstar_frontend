@@ -22,7 +22,7 @@ const Movieadmin = () => {
       useEffect(() => {
           const fetchData = async () => {
             try {
-              const response = await axios.get("http://localhost:8000/api/movie1s");
+              const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/movie1s`);
               setProducts(response.data);
             } catch (error) {
               console.log("Error while f etching data", error);
@@ -35,7 +35,7 @@ const Movieadmin = () => {
         useEffect(() => {
           const fetchData = async () => {
             try {
-              const response = await axios.get("http://localhost:8000/api/movie2s");
+              const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/movie2s`);
               setshow1(response.data);
             } catch (error) {
               console.log("Error while f etching data", error);
@@ -47,7 +47,7 @@ const Movieadmin = () => {
         useEffect(() => {
           const fetchData = async () => {
             try {
-              const response = await axios.get("http://localhost:8000/api/movie3s");
+              const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/movie3s`);
               setshow2(response.data);
             } catch (error) {
               console.log("Error while f etching data", error);
@@ -59,7 +59,7 @@ const Movieadmin = () => {
         useEffect(() => {
             const fetchData = async () => {
               try {
-                const response = await axios.get("http://localhost:8000/api/movie4s");
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/movie4s`);
                 setshow3(response.data);
               } catch (error) {
                 console.log("Error while f etching data", error);
@@ -88,7 +88,7 @@ const Movieadmin = () => {
           }
     
           const response = await axios.post(
-            "http://localhost:8000/api/movie1_details",
+            `${process.env.REACT_APP_API_URL}/api/movie1_details`,
             formData,
             { headers: { "Content-Type": "multipart/form-data" } }
           );
@@ -119,7 +119,7 @@ const Movieadmin = () => {
           }
     
           const response = await axios.post(
-            "http://localhost:8000/api/movie2_details",
+            `${process.env.REACT_APP_API_URL}/api/movie2_details`,
             formData,
             { headers: { "Content-Type": "multipart/form-data" } }
           );
@@ -149,7 +149,7 @@ const Movieadmin = () => {
           }
     
           const response = await axios.post(
-            "http://localhost:8000/api/movie3_details",
+            `${process.env.REACT_APP_API_URL}/api/movie3_details`,
             formData,
             { headers: { "Content-Type": "multipart/form-data" } }
           );
@@ -180,7 +180,7 @@ const Movieadmin = () => {
           }
     
           const response = await axios.post(
-            "http://localhost:8000/api/movie4_details",
+            `${process.env.REACT_APP_API_URL}/api/movie4_details`,
             formData,
             { headers: { "Content-Type": "multipart/form-data" } }
           );
@@ -196,7 +196,7 @@ const Movieadmin = () => {
 
       const deleteProduct = async (productId) => {
           await axios
-            .delete(`http://localhost:8000/api/delete/movie1/${productId}`)
+            .delete(`${process.env.REACT_APP_API_URL}/api/delete/movie1/${productId}`)
             .then(() => {
               setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
             })
@@ -207,7 +207,7 @@ const Movieadmin = () => {
 
         const deletethriller = async (productId) => {
           await axios
-            .delete(`http://localhost:8000/api/delete/movie3/${productId}`)
+            .delete(`${process.env.REACT_APP_API_URL}/api/delete/movie3/${productId}`)
             .then(() => {
               setshow2((prevProducts) => prevProducts.filter((product) => product._id !== productId));
             })
@@ -218,7 +218,7 @@ const Movieadmin = () => {
 
         const deleteshow1 = async (productId) => {
           await axios
-            .delete(`http://localhost:8000/api/delete/movie2/${productId}`)
+            .delete(`${process.env.REACT_APP_API_URL}/api/delete/movie2/${productId}`)
             .then(() => {
               setshow1((prevProducts) => prevProducts.filter((product) => product._id !== productId));
             })
@@ -316,7 +316,7 @@ const Movieadmin = () => {
               <td>
                 {product.image ? (
                   <img 
-                    src={`http://localhost:8000${product.image}`} 
+                    src={`${process.env.REACT_APP_API_URL}${product.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 
@@ -427,7 +427,7 @@ const Movieadmin = () => {
               <td>
                 {product.image ? (
                   <img 
-                    src={`http://localhost:8000${product.image}`} 
+                    src={`${process.env.REACT_APP_API_URL}${product.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 
@@ -540,7 +540,7 @@ const Movieadmin = () => {
               <td>
                 {product.image ? (
                   <img 
-                    src={`http://localhost:8000${product.image}`} 
+                    src={`${process.env.REACT_APP_API_URL}${product.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 
@@ -659,7 +659,7 @@ const Movieadmin = () => {
               <td>
                 {product.image ? (
                   <img 
-                    src={`http://localhost:8000${product.image}`} 
+                    src={`${process.env.REACT_APP_API_URL}${product.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 

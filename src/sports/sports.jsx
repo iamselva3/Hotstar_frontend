@@ -110,7 +110,7 @@ const Sports = () => {
                 useEffect(() => {
                     const fetchData = async () => {
                       try {
-                        const response = await axios.get("http://localhost:8000/api/sports1s");
+                        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/sports1s`);
                         setsports(response.data);
                       } catch (error) {
                         console.log("Error while fetching data", error);
@@ -122,7 +122,7 @@ const Sports = () => {
                   useEffect(() => {
                     const fetchData = async () => {
                       try {
-                        const response = await axios.get("http://localhost:8000/api/sports2s");
+                        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/sports2s`);
                         setsports1(response.data);
                       } catch (error) {
                         console.log("Error while fetching data", error);
@@ -134,7 +134,7 @@ const Sports = () => {
                   useEffect(() => {
                     const fetchData = async () => {
                       try {
-                        const response = await axios.get("http://localhost:8000/api/sports3s");
+                        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/sports3s`);
                         setsports2(response.data);
                       } catch (error) {
                         console.log("Error while fetching data", error);
@@ -145,7 +145,7 @@ const Sports = () => {
                   useEffect(() => {
                     const fetchData = async () => {
                       try {
-                        const response = await axios.get("http://localhost:8000/api/sports4s");
+                        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/sports4s`);
                         setsports3(response.data);
                       } catch (error) {
                         console.log("Error while fetching data", error);
@@ -197,7 +197,7 @@ const Sports = () => {
       <div className="carousel-containersports" ref={carouselRef1}>
       {sports.map((product) => (
               <div key={product._id} className="product">
-                <a href="/video2"><img src={`http://localhost:8000${product.image}`} alt={product.name} className="cardsports" />
+                <a href="/video2"><img src={`${process.env.REACT_APP_API_URL}${product.image}`} alt={product.name} className="cardsports" />
                 </a></div>
             ))}
       </div>
@@ -212,7 +212,7 @@ const Sports = () => {
 <div className="carousel-containersports" ref={carouselRef2}>
 {sports1.map((product) => (
         <div key={product._id} className="product">
-          <a href="/video2"><img src={`http://localhost:8000${product.image}`} alt={product.name} className="cardsports" />
+          <a href="/video2"><img src={`${process.env.REACT_APP_API_URL}${product.image}`} alt={product.name} className="cardsports" />
           </a></div>
       ))}
 </div>
@@ -228,7 +228,7 @@ const Sports = () => {
 <div className="carousel-containersports" ref={carouselRef3}>
 {sports2.map((product) => (
         <div key={product._id} className="product">
-          <a href="/video2"><img src={`http://localhost:8000${product.image}`} alt={product.name} className="cardsports" />
+          <a href="/video2"><img src={`${process.env.REACT_APP_API_URL}${product.image}`} alt={product.name} className="cardsports" />
           </a></div>
       ))}
 </div>
@@ -244,7 +244,7 @@ const Sports = () => {
 <div className="carousel-containersports" ref={carouselRef4}>
 {sports3.map((product) => (
         <div key={product._id} className="product">
-          <a href="/video2"><img src={`http://localhost:8000${product.image}`} alt={product.name} className="cardsports" />
+          <a href="/video2"><img src={`${process.env.REACT_APP_API_URL}${product.image}`} alt={product.name} className="cardsports" />
           </a></div>
       ))}
 </div>

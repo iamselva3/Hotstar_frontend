@@ -31,7 +31,7 @@ const VideoAdmin = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:8000/api/video_details",
+        `${process.env.REACT_APP_API_URL}/api/video_details`,
         formData,
         {
           headers: {
@@ -65,7 +65,7 @@ const VideoAdmin = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:8000/api/video1",
+        `${process.env.REACT_APP_API_URL}/api/video1`,
         formData,
         {
           headers: {
@@ -99,7 +99,7 @@ const VideoAdmin = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:8000/api/video2",
+        `${process.env.REACT_APP_API_URL}/api/video2`,
         formData,
         {
           headers: {
@@ -133,7 +133,7 @@ const VideoAdmin = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:8000/api/video3",
+        `${process.env.REACT_APP_API_URL}/api/video3`,
         formData,
         {
           headers: {
@@ -168,7 +168,7 @@ const VideoAdmin = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:8000/api/video4",
+        `${process.env.REACT_APP_API_URL}/api/video4`,
         formData,
         {
           headers: {

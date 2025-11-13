@@ -96,7 +96,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/products");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products`);
         setProducts(response.data);
       } catch (error) {
         console.log("Error while fetching data", error);
@@ -108,7 +108,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/movies");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/movies`);
         setMovies(response.data);
       } catch (error) {
         console.log("Error while fetching data", error);
@@ -120,7 +120,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/gbms");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/gbms`);
         setgbm(response.data);
       } catch (error) {
         console.log("Error while fetching data", error);
@@ -173,7 +173,7 @@ const Home = () => {
           {products.map((product) => (
             <div key={product._id} className="product">
               <a href='/video'>
-                <img src={`http://localhost:8000${product.image}`} alt={product.name} className="card1" />
+                <img src={`${process.env.REACT_APP_API_URL}${product.image}`} alt={product.name} className="card1" />
               </a>
             </div>
           ))}
@@ -189,7 +189,7 @@ const Home = () => {
           {Movies.map((movie) => (
             <div key={movie._id} className="product">
               <a href='/video'>
-                <img src={`http://localhost:8000${movie.image}`} alt={movie.name} className="card1" />
+                <img src={`${process.env.REACT_APP_API_URL}${movie.image}`} alt={movie.name} className="card1" />
               </a>
             </div>
           ))}
@@ -205,7 +205,7 @@ const Home = () => {
           {gbm.map((gbms) => (
             <div key={gbms._id} className="product">
               <a href='/video'>
-                <img src={`http://localhost:8000${gbms.image}`} alt={gbms.name} className="card1" />
+                <img src={`${process.env.REACT_APP_API_URL}${gbms.image}`} alt={gbms.name} className="card1" />
               </a>
             </div>
           ))}

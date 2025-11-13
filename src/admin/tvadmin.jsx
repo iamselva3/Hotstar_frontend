@@ -20,7 +20,7 @@ const Tvadmin = () => {
       useEffect(() => {
           const fetchData = async () => {
             try {
-              const response = await axios.get("http://localhost:8000/api/tv1s");
+              const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/tv1s`);
               setProducts(response.data);
             } catch (error) {
               console.log("Error while f etching data", error);
@@ -33,7 +33,7 @@ const Tvadmin = () => {
         useEffect(() => {
           const fetchData = async () => {
             try {
-              const response = await axios.get("http://localhost:8000/api/tv2s");
+              const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/tv2s`);
               setshow1(response.data);
             } catch (error) {
               console.log("Error while f etching data", error);
@@ -45,7 +45,7 @@ const Tvadmin = () => {
         useEffect(() => {
           const fetchData = async () => {
             try {
-              const response = await axios.get("http://localhost:8000/api/tv3s");
+              const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/tv3s`);
               setshow2(response.data);
             } catch (error) {
               console.log("Error while f etching data", error);
@@ -74,7 +74,7 @@ const Tvadmin = () => {
           }
     
           const response = await axios.post(
-            "http://localhost:8000/api/tv1_details",
+            `${process.env.REACT_APP_API_URL}/api/tv1_details`,
             formData,
             { headers: { "Content-Type": "multipart/form-data" } }
           );
@@ -105,7 +105,7 @@ const Tvadmin = () => {
           }
     
           const response = await axios.post(
-            "http://localhost:8000/api/tv2_details",
+            `${process.env.REACT_APP_API_URL}/api/tv2_details`,
             formData,
             { headers: { "Content-Type": "multipart/form-data" } }
           );
@@ -135,7 +135,7 @@ const Tvadmin = () => {
           }
     
           const response = await axios.post(
-            "http://localhost:8000/api/tv3_details",
+            `${process.env.REACT_APP_API_URL}/api/tv3_details`,
             formData,
             { headers: { "Content-Type": "multipart/form-data" } }
           );
@@ -151,7 +151,7 @@ const Tvadmin = () => {
 
       const deleteProduct = async (productId) => {
           await axios
-            .delete(`http://localhost:8000/api/delete/tv1/${productId}`)
+            .delete(`${process.env.REACT_APP_API_URL}/api/delete/tv1/${productId}`)
             .then(() => {
               setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
             })
@@ -162,7 +162,7 @@ const Tvadmin = () => {
 
         const deletethriller = async (productId) => {
           await axios
-            .delete(`http://localhost:8000/api/delete/tv3/${productId}`)
+            .delete(`${process.env.REACT_APP_API_URL}/api/delete/tv3/${productId}`)
             .then(() => {
               setshow2((prevProducts) => prevProducts.filter((product) => product._id !== productId));
             })
@@ -173,7 +173,7 @@ const Tvadmin = () => {
 
         const deleteshow1 = async (productId) => {
           await axios
-            .delete(`http://localhost:8000/api/delete/tv2/${productId}`)
+            .delete(`${process.env.REACT_APP_API_URL}/api/delete/tv2/${productId}`)
             .then(() => {
               setshow1((prevProducts) => prevProducts.filter((product) => product._id !== productId));
             })
@@ -271,7 +271,7 @@ const Tvadmin = () => {
               <td>
                 {product.image ? (
                   <img 
-                    src={`http://localhost:8000${product.image}`} 
+                    src={`${process.env.REACT_APP_API_URL}${product.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 
@@ -382,7 +382,7 @@ const Tvadmin = () => {
               <td>
                 {product.image ? (
                   <img 
-                    src={`http://localhost:8000${product.image}`} 
+                    src={`${process.env.REACT_APP_API_URL}${product.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 
@@ -495,7 +495,7 @@ const Tvadmin = () => {
               <td>
                 {product.image ? (
                   <img 
-                    src={`http://localhost:8000${product.image}`} 
+                    src={`${process.env.REACT_APP_API_URL}${product.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 

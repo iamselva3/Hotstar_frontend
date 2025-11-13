@@ -9,7 +9,7 @@ const RandomMoviePage = () => {
   useEffect(() => {
     const fetchRandomVideo = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/videos");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/videos`);
         const videos = response.data;
         if (videos.length > 0) {
           const random = videos[Math.floor(Math.random() * videos.length)];
@@ -27,7 +27,7 @@ const RandomMoviePage = () => {
   useEffect(() => {
     const fetchRandomMovie = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/movies");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/movies`);
         const movies = response.data;
         if (movies.length > 0) {
           const random = movies[Math.floor(Math.random() * movies.length)];
@@ -53,7 +53,7 @@ const RandomMoviePage = () => {
             autoPlay
             style={{ borderRadius: "10px" }}
           >
-            <source src={`http://localhost:8000${randomVideo.video}`} type="video/mp4" />
+            <source src={`${process.env.REACT_APP_API_URL}${randomVideo.video}`} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         ) : (

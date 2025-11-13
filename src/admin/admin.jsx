@@ -33,7 +33,7 @@ const Admin = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:8000/api/video_details",
+        `${process.env.REACT_APP_API_URL}/api/video_details`,
         formData,
         {
           headers: {
@@ -69,7 +69,7 @@ const Admin = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:8000/api/product_details",
+        `${process.env.REACT_APP_API_URL}/api/product_details`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -100,7 +100,7 @@ const Admin = () => {
         formData.append("image", gbmData.image);
       }
 
-      const response = await axios.post("http://localhost:8000/api/gbm_details", formData, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/gbm_details`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -123,7 +123,7 @@ const Admin = () => {
 
   const deleteProduct = async (productId) => {
     await axios
-      .delete(`http://localhost:8000/api/delete/product/${productId}`)
+      .delete(`${process.env.REACT_APP_API_URL}/api/delete/product/${productId}`)
       .then(() => {
         setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
       })
@@ -142,7 +142,7 @@ const Admin = () => {
         formData.append("image", movieData.image);
       }
 
-      const response = await axios.post("http://localhost:8000/api/movie_details", formData, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/movie_details`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -160,7 +160,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/products");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products`);
         setProducts(response.data);
       } catch (error) {
         console.log("Error while f etching data", error);
@@ -175,7 +175,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/movies");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/movies`);
         setmovies(response.data);
       } catch (error) {
         console.log("Error while f etching data", error);
@@ -191,7 +191,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/gbms");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/gbms`);
         setgbm(response.data);
       } catch (error) {
         console.log("Error while f etching data", error);
@@ -202,7 +202,7 @@ const Admin = () => {
 
   const deleteProduct1 = async (productId) => {
     await axios
-      .delete(`http://localhost:8000/api/delete/movie/${productId}`)
+      .delete(`${process.env.REACT_APP_API_URL}/api/delete/movie/${productId}`)
       .then(() => {
         setmovies((prevProducts) => prevProducts.filter((product) => product._id !== productId));
       })
@@ -213,7 +213,7 @@ const Admin = () => {
   
   const deleteProduct2 = async (productId) => {
     await axios
-      .delete(`http://localhost:8000/api/delete/gbm/${productId}`)
+      .delete(`${process.env.REACT_APP_API_URL}/api/delete/gbm/${productId}`)
       .then(() => {
         setgbm((prevProducts) => prevProducts.filter((product) => product._id !== productId));
       })
@@ -374,7 +374,7 @@ const Admin = () => {
               <td>
                 {product.image ? (
                   <img 
-                    src={`http://localhost:8000${product.image}`} 
+                    src={`${process.env.REACT_APP_API_URL}${product.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 
@@ -485,7 +485,7 @@ const Admin = () => {
               <td>
                 {movie.image ? (
                   <img 
-                    src={`http://localhost:8000${movie.image}`} 
+                    src={`${process.env.REACT_APP_API_URL}${movie.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 
@@ -592,7 +592,7 @@ const Admin = () => {
               <td>
                 {movie.image ? (
                   <img 
-                    src={`http://localhost:8000${movie.image}`} 
+                    src={`${process.env.REACT_APP_API_URL}${movie.image}`} 
                     alt="User" 
                     width="50" 
                     height="50" 

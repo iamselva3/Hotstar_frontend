@@ -110,7 +110,7 @@ const Movies = () => {
                 useEffect(() => {
                     const fetchData = async () => {
                       try {
-                        const response = await axios.get("http://localhost:8000/api/movie1s");
+                        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/movie1s`);
                         setsports(response.data);
                       } catch (error) {
                         console.log("Error while fetching data", error);
@@ -122,7 +122,7 @@ const Movies = () => {
                   useEffect(() => {
                     const fetchData = async () => {
                       try {
-                        const response = await axios.get("http://localhost:8000/api/movie2s");
+                        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/movie2s`);
                         setsports1(response.data);
                       } catch (error) {
                         console.log("Error while fetching data", error);
@@ -134,7 +134,7 @@ const Movies = () => {
                   useEffect(() => {
                     const fetchData = async () => {
                       try {
-                        const response = await axios.get("http://localhost:8000/api/movie3s");
+                        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/movie3s`);
                         setsports2(response.data);
                       } catch (error) {
                         console.log("Error while fetching data", error);
@@ -145,7 +145,7 @@ const Movies = () => {
                   useEffect(() => {
                     const fetchData = async () => {
                       try {
-                        const response = await axios.get("http://localhost:8000/api/movie4s");
+                        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/movie4s`);
                         setsports3(response.data);
                       } catch (error) {
                         console.log("Error while fetching data", error);
@@ -181,7 +181,7 @@ const Movies = () => {
       <div className="carousel-containermovie" ref={carouselRef1}>
       {sports.map((product) => (
               <div key={product._id} className="product">
-             <a href="/video4">   <img src={`http://localhost:8000${product.image}`} alt={product.name} className="cardmovie" />
+             <a href="/video4">   <img src={`${process.env.REACT_APP_API_URL}${product.image}`} alt={product.name} className="cardmovie" />
              </a></div>
             ))}
       </div>
@@ -196,7 +196,7 @@ const Movies = () => {
 <div className="carousel-containermovie" ref={carouselRef2}>
 {sports1.map((product) => (
         <div key={product._id} className="product">
-          <a href="/video4"><img src={`http://localhost:8000${product.image}`} alt={product.name} className="cardmovie" />
+          <a href="/video4"><img src={`${process.env.REACT_APP_API_URL}${product.image}`} alt={product.name} className="cardmovie" />
           </a></div>
       ))}
 </div>
@@ -230,7 +230,7 @@ const Movies = () => {
 <div className="carousel-containermovie" ref={carouselRef3}>
 {sports2.map((product) => (
         <div key={product._id} className="product">
-          <a href="/video4"><img src={`http://localhost:8000${product.image}`} alt={product.name} className="cardmovie" />
+          <a href="/video4"><img src={`${process.env.REACT_APP_API_URL}${product.image}`} alt={product.name} className="cardmovie" />
           </a></div>
       ))}
 </div>
@@ -246,7 +246,7 @@ const Movies = () => {
 <div className="carousel-containermovie" ref={carouselRef4}>
 {sports3.map((product) => (
         <div key={product._id} className="product">
-          <a href="/video4"><img src={`http://localhost:8000${product.image}`} alt={product.name} className="cardmovie" />
+          <a href="/video4"><img src={`${process.env.REACT_APP_API_URL}${product.image}`} alt={product.name} className="cardmovie" />
           </a></div>
       ))}
 </div>

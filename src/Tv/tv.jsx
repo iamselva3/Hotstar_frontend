@@ -99,7 +99,7 @@ const Tv = () => {
         useEffect(() => {
             const fetchData = async () => {
               try {
-                const response = await axios.get("http://localhost:8000/api/tv1s");
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/tv1s`);
                 setProducts(response.data);
               } catch (error) {
                 console.log("Error while fetching data", error);
@@ -112,7 +112,7 @@ const Tv = () => {
           useEffect(() => {
             const fetchData = async () => {
               try {
-                const response = await axios.get("http://localhost:8000/api/tv2s");
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/tv2s`);
                 setshow1(response.data);
               } catch (error) {
                 console.log("Error while fetching data", error);
@@ -124,7 +124,7 @@ const Tv = () => {
           useEffect(() => {
             const fetchData = async () => {
               try {
-                const response = await axios.get("http://localhost:8000/api/tv3s");
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/tv3s`);
                 setshow2(response.data);
               } catch (error) {
                 console.log("Error while fetching data", error);
@@ -160,7 +160,7 @@ const Tv = () => {
       <div className="carousel-containertv" ref={carouselRef1}>
       {products.map((product) => (
               <div key={product._id} className="product">
-                <a href="/video1"><img src={`http://localhost:8000${product.image}`} alt={product.name} className="cardtv" />
+                <a href="/video1"><img src={`${process.env.REACT_APP_API_URL}${product.image}`} alt={product.name} className="cardtv" />
                 </a> </div>
             ))}
       </div>
@@ -177,7 +177,7 @@ const Tv = () => {
 <div className="carousel-containertv" ref={carouselRef2}>
 {show1.map((product) => (
         <div key={product._id} className="product">
-          <a href="/video1"><img src={`http://localhost:8000${product.image}`} alt={product.name} className="cardtv" />
+          <a href="/video1"><img src={`${process.env.REACT_APP_API_URL}${product.image}`} alt={product.name} className="cardtv" />
           </a> </div>
       ))}
 </div>
@@ -210,7 +210,7 @@ const Tv = () => {
 <div className="carousel-containertv" ref={carouselRef3}>
 {show2.map((product) => (
         <div key={product._id} className="product">
-         <a href="video1"> <img src={`http://localhost:8000${product.image}`} alt={product.name} className="cardtv" />
+         <a href="video1"> <img src={`${process.env.REACT_APP_API_URL}${product.image}`} alt={product.name} className="cardtv" />
          </a></div>
       ))}
 </div>
