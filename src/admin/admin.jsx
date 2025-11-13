@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./admin.css"
 import axios from "axios";
 import Adminnav from './adminnav';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
 

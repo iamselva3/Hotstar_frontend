@@ -94,7 +94,7 @@ const Tv = () => {
           }, 5000);
       
           return () => clearInterval(interval);
-        }, []);
+        }, [images.length]);
       
         useEffect(() => {
             const fetchData = async () => {

@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, {  useEffect, useRef, useState } from 'react';
 import "./home.css"
 import Navbar from '../navbar/navbar';
-import { Context } from '../App';
 import img1 from "./1.jpg";
 import img2 from "./2.jpg";
 import img3 from "./3.jpg";
@@ -92,7 +91,7 @@ const Home = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   useEffect(() => {
     const fetchData = async () => {

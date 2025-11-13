@@ -92,6 +92,7 @@ function App() {
   const [user, setuser ] = useState("");
   const [page, setPage] = useState("/login"); 
   const [cart, setCart] = useState([]);
+conso.los(page);
   return (
     <div className="App">
 

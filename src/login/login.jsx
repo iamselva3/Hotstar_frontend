@@ -10,6 +10,8 @@ const Login = () => {
 
  const {setuser,setPage}=useContext(Context);
 
+ console.log(setPage)
+
  let navigate= useNavigate();
  
 const handlesubmit = async () => {
