@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./user.css";
 import { FaUserEdit } from "react-icons/fa";
 import Navbar from "../navbar/navbar";
@@ -13,7 +13,7 @@ const UserProfile = () => {
     const [sports3,setsports3]=useState([]);
 
 
-    const [user, setUser] = useState(null);
+    // const [user, setUser] = useState(null);
 
 useEffect(() => {
   const fetchUser = async () => {
@@ -24,7 +24,7 @@ useEffect(() => {
           Authorization: `Bearer ${token}`,
         },
       });
-      setUser(response.data);
+      // setUser(response.data);
     } catch (error) {
       console.error("Error fetching user profile", error);
     }
@@ -66,7 +66,7 @@ useEffect(() => {
           <h3>Subscribe to enjoy Starflix</h3>
           {/* <p>+91 9********8 • sel********@gmail.com</p> */}
           <h3 style={{ marginTop: "30px", fontSize: "20px" }}>
-          Welcome {storedUser?. name?.toUpperCase()   || "User"} !!
+          Welcome {storedUser?.name?.toUpperCase()   || "User"} !!
 </h3>
         </div>
         <div className="user-actions">
