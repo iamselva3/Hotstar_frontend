@@ -1,0 +1,253 @@
+.homebody{
+    background-color: black;
+    height: 280vh;
+    width: 100%;
+}
+
+.slider_section {
+    margin-top: -1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 250px); /* Adjust based on navbar width */
+    min-height: 400px;
+    background: black;
+    position: relative;
+    margin-left: 150px; /* Same as navbar width */
+}
+
+.carousel {
+    width: 100%;
+    max-width: 1100px;
+    margin-top: 10px;
+    height: 450px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Ensure images fill the carousel correctly */
+.carousel img {
+    width: 100%;
+    height: 100%;
+    margin-top: 100px;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Overlay for captions */
+.carousel .overlay {
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-103%);
+    text-align:start;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 20px;
+    border-radius: 8px;
+    z-index: 10;
+    color: white;
+}
+
+/* Subscribe button styling */
+.subscribe-btn {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.subscribe-btn:hover {
+    background-color: #0056b3;
+}
+
+.card{
+    height: 40vh;
+    width: 15vw;
+    display: inline-flex;
+    gap: 5px;
+    margin-left: 2vh;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 88vw;
+    margin: auto;
+    margin-left: 16vh;
+    margin-top: -20px;
+}
+
+.carousel-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    padding: 10px;
+    width: 100%;
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    min-width: 200px;
+    height: 120px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Arrow Styling */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.arrow:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.left {
+    left: 3px;
+    margin-top: 100px;
+    position: relative;
+}
+
+.right {
+    right: 10px;
+    margin-top: 100px;
+    position: relative;
+}
+
+.left1 {
+    left: 10px;
+    margin-top: 100px;
+    position: relative;
+}
+
+.right1 {
+    right: 10px;
+    margin-top: 100px;
+    position: relative;
+}
+
+.img3{
+    border-radius: 10px;
+    height: 40vh;
+    width: 15vw;
+    display: inline-flex;
+}
+
+.carousel-wrapper1 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    width: 88vw;
+    margin: auto;
+    margin-left: 16vh;
+    margin-top: -30px;
+}
+
+.carousel-container1 {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    padding: 10px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.carousel-container1::-webkit-scrollbar {
+    display: none;
+}
+
+.card1 {
+    min-width: 125px;
+    height: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.card1:hover {
+    transform: scale(1.1);
+}
+
+.card1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.left2 {
+    left: 10px;
+    margin-top: 100px;
+    position: relative;
+}
+
+.right2 {
+    right: 10px;
+    margin-top: 100px;
+    position: relative;
+}
+
+
+.card2 {
+    min-width: 125px;
+    height: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.card2:hover {
+    transform: scale(1.1);
+}
+
+.card2 img {
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
+    border-radius: 10px;
+}

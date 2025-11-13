@@ -1,0 +1,66 @@
+.navbar{
+    width: 100px;
+    height: 100vh;
+    position: relative;   
+    position:fixed;
+    /* display: inline-block;
+    align-items: center;
+    z-index: 999; */
+    color: white;
+
+}
+
+.nav{
+    margin-left: 40px;
+    margin-top:  -150px;
+    display: inline-block;
+    align-items: center;
+    z-index: 999;
+}
+
+    .icon{
+        margin-top: 50px;
+        color: white;
+        margin-left: -7px;
+        transition: transform 0.3s ease, color 0.3s ease;
+        font-size: 25px;
+    }
+
+    .icon:hover{
+        font-size: 30px;
+        color: grey;
+    }
+
+
+.img1{
+    height: 90px;
+    margin-top: -10vh;
+    margin-left: 0px;
+}
+
+.icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 5px 8px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -35px; /* Adjust position */
+    left: 30%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.icon-container:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}

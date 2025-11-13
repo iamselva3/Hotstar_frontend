@@ -1,0 +1,53 @@
+.tvbody{
+    background-color: black;
+    height: 300vh;
+    width: 100%;
+}
+
+
+
+.carousel-wrappertv {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    width: 88vw;
+    margin: auto;
+    margin-left: 16vh;
+    margin-top: -30px;
+}
+
+.carousel-containertv {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    padding: 10px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.carousel-containertv::-webkit-scrollbar {
+    display: none;
+}
+
+.cardtv{
+    min-width: 165px;
+    height: 240px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.cardtv:hover {
+    transform: scale(1.1);
+}
+
+.cardtv img {
+    width: 100vh;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}

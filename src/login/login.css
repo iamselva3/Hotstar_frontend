@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body{
+    height: 100vh;
+    width: 100%;
+    /* background-image: url("./Disneyhotstar.jpg");
+    margin-left: -300px;
+    margin-top: -1px; */
+    background-image: linear-gradient(to right,black 45%,blue);
+    /* background:  linear-gradient(to right, #1e3c72 50%, #2a5298); */
+}
+ .loginbody{
+    margin-left: 60vw;
+    margin-top: -62vh;
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+ }
+
+ .input{
+    border-radius: 4px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 35px;
+    width: 55vh;
+    border: none; /* Removes default border */
+    outline: none; /* Removes focus outline */
+    box-shadow: none;
+ }
+
+
+.dhlogo{
+    height: 75vh;
+    width: 450px;
+    position: relative;
+    margin-left: 100px;
+    margin-top:60px;
+}
+.button {
+    margin-top: 10px;
+      background-color: #007bff !important;
+    color: #fff !important;
+    height: 40px;
+    width: 55vh;
+    border: none; /* Removes default border */
+    outline: none; /* Removes focus outline */
+    box-shadow: none;
+    border-radius: 5px;
+  }
