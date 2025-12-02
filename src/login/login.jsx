@@ -1,72 +1,97 @@
-import React, { useContext, useState } from 'react'
-import "./login.css"
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { Context } from '../App';
+import React, { useContext, useState } from "react";
+import "./login.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { Context } from "../App";
+import { toast } from "react-toastify";
 
 const Login = () => {
-    const [email,setemail]=useState("");
- const [password,setpassword]=useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const { setuser } = useContext(Context);
+  const navigate = useNavigate();
 
- const {setuser,setPage}=useContext(Context);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
- console.log(setPage)
-
- let navigate= useNavigate();
- 
-const handlesubmit = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/users`); // Fetch all users
-      const users = response.data;
-  
-      const user = users.find((u) => u.name === email && u.address === password); // Check if user exists
-  
-      if (user) {
-        if (email === "admin" && password === "admin") {
-          navigate("/admin");
-        } else {
-          setuser(email)
-          // setPage("/home");
-          navigate("/home");
-        }
-      } 
-  
-      else if( user !== password){
-        alert("Password Does not match.Try Again.");
-        navigate("/")
+      // <<-- Replace this URL if your Postman URL is different.
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/login`,
+        { name, password },
+        { headers: { "Content-Type": "application/json" } }
+      );
+
+      // Expecting: { message, user: {...}, token: "..." }
+      if (!data || !data.user) {
+        toast.error("Login failed — invalid response from server");
+        return;
       }
-      
-      
-      else {
-        alert("User does not exist. Please sign up first.");
-        navigate("/signup");
+
+      // Save auth state
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+      setuser(data.user);
+
+      toast.success("Login successful");
+      // admin special-case (you should move this server-side)
+      if (name === "admin" && password === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/home");
       }
-      localStorage.setItem("user", JSON.stringify(user));
-    } catch (error) {
-      console.error("Error fetching users", error);
-      alert("Something went wrong. Please try again.");
+    } catch (err) {
+      const msg = err.response?.data?.message || "Login failed. Try again.";
+      toast.error(msg);
+      console.error("Login error:", err);
     }
   };
+
   return (
-    <div className='body'>
-       <img src='/Star.png' alt='dh' className='dhlogo'></img>
-       <div className='loginbody'>
-       <h1>
-        Login 
-       </h1>
-       <label>Username</label><br></br>
-       <input type="text" placeholder='Enter your username' className='input' value={email} onChange={(e)=>setemail(e.target.value)} required></input><br></br>
-       <label>Password</label><br></br>
-       <input type="password" placeholder='Enter your password' className='input' value={password} onChange={(e)=>setpassword(e.target.value)} required/> <br></br>
-       <button class='button'  onClick={handlesubmit}>Login</button><br></br>
-       <p style={{marginTop:"10px"}}>
-            Don't have an account?<b> <a style={{color:'white'}} href="/signup">Sign up</a></b>
-          </p>
-       {/* <Button variant="primary" className="w-100">Login</Button> */}
-       </div>
-      
+    <div className="body">
+      <img src="/Star.png" alt="dh" className="dhlogo" />
+      <div className="loginbody">
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <label>Username</label>
+          <br />
+          <input
+            type="text"
+            placeholder="Enter your username"
+            className="input"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <br />
+          <label>Password</label>
+          <br />
+          <input
+            type="password"
+            placeholder="Enter your password"
+            className="input"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <br />
+          <button className="button" type="submit">
+            Login
+          </button>
+        </form>
+
+        <p style={{ marginTop: "10px" }}>
+          Don't have an account?
+          <b>
+            {" "}
+            <a style={{ color: "white" }} href="/signup">
+              Sign up
+            </a>
+          </b>
+        </p>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Login;

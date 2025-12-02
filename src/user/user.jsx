@@ -3,36 +3,86 @@ import "./user.css";
 import { FaUserEdit } from "react-icons/fa";
 import Navbar from "../navbar/navbar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 const UserProfile = () => {
     const carouselRef4 = useRef(null);
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+    // const storedUser = JSON.parse(localStorage.getItem("user"));
 
 
-    const [sports3,setsports3]=useState([]);
+    
+    const navigate = useNavigate();
 
-
-    // const [user, setUser] = useState(null);
+const [storedUser, setStoredUser] = useState(() => {
+  try { return JSON.parse(localStorage.getItem("user")); } catch { return null; }
+});
+const [user, setUser] = useState(null);
 
 useEffect(() => {
   const fetchUser = async () => {
     try {
       const token = localStorage.getItem("token");
+      if (!token) return; // don't call API if no token
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/profile`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       });
-      console.log(response)
-      // setUser(response.data);
+      // assuming profile is in response.data
+      setUser(response.data);
+      setStoredUser(response.data);
     } catch (error) {
       console.error("Error fetching user profile", error);
     }
   };
-
   fetchUser();
 }, []);
+
+useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    navigate("/", { replace: true });
+  }
+}, [navigate]);
+
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  setUser(null);
+  setStoredUser(null);     
+  navigate("/", { replace: true });
+};
+
+    const [sports3,setsports3]=useState([]);
+
+
+//     const [user, setUser] = useState(null);
+
+// useEffect(() => {
+//   const fetchUser = async () => {
+//     try {
+//       const token = localStorage.getItem("token");
+//       const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/profile`, {
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       });
+//       console.log(response)
+//       // setUser(response.data);
+//     } catch (error) {
+//       console.error("Error fetching user profile", error);
+//     }
+//   };
+
+//   fetchUser();
+// }, []);
+
+// const handleLogout = () => {
+//   localStorage.removeItem("token");
+//   localStorage.removeItem("user");
+//   setUser(null);  // clear context
+//   navigate("/", { replace: true });  // redirect to login
+// };
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -73,7 +123,7 @@ useEffect(() => {
         <div className="user-actions">
           <button className="subscribe-btn">Subscribe</button>
           <span className="plan-info">Plans start at ₹299</span>
-         <a href="/"> <button className="settings-btn">Log Out</button></a>
+         <a href="/"> <button className="settings-btn" onClick={handleLogout}>Log Out</button></a>
         </div>
       </div>
 
